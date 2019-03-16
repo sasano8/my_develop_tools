@@ -1,0 +1,23 @@
+﻿# コンテキストメニューにpowershell hereを追加
+
+#ディレクトリに対するコンテキストメニューへメニューを追加
+$path = "Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\Directory\Background\shell\powershell_here"
+$value = "powershell_here(&X)"
+New-Item $path -value $value
+
+#メニューのコマンドを実装
+$path = "Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\Directory\Background\shell\powershell_here\command"
+$value = "powershell.exe -noexit -command `"cd '%V'`""
+New-Item $path -value $value
+
+
+#ファイルに対するコンテキストメニューへメニューを追加
+$path = "Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\Folder\shell\powershell_here"
+$value = "powershell_here(&X)"
+New-Item $path -value $value
+
+#メニューのコマンドを実装
+$path = "Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\Folder\shell\powershell_here\command"
+$value = "powershell.exe -noexit -command `"cd '%V'`""
+New-Item $path -value $value
+

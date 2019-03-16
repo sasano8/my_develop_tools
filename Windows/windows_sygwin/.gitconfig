@@ -1,0 +1,11 @@
+[user]
+	name = yas
+	email = the.world.is.large@gmail.com
+[diff]
+    tool = WinMerge
+[difftool "WinMerge"]
+    path = C:/Program Files/WinMerge/WinMergeU.exe
+    cmd = \"C:/Program Files/WinMerge/WinMergeU.exe\" -f \"*.*\" -e -u -r \"$LOCAL\" \"$REMOTE\"
+
+[alias]
+    d = difftool -y

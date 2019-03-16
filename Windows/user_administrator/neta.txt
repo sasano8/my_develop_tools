@@ -1,0 +1,32 @@
+Get-WindowsEdition                                      
+Get-WindowsEdition -Online                              
+[System.Environment]::OSVersion
+
+Get-WmiObject Win32_OperatingSystem | % { $_.caption }  
+
+$PSVersionTable                                         
+Get-PSProvider                                          
+ls env:                                                 
+ls Variable:                                            
+$env:COMPUTERNAME                                       
+
+# ローカルアカウント
+Get-WmiObject Win32_UserAccount | ? { $_.LocalAccount -eq $true }
+Get-WmiObject Win32_Group | ? { $_.LocalAccount -eq $true }
+
+# DNSドメイン
+$env:USERDNSDOMAIN                                      
+
+# ローカルドメイン
+$env:USERDOMAIN                                         
+
+
+get-netadapter                                          
+Get-NetIPAddress                                        
+get-netroute                                            
+get-netFirewallProfile                                  
+
+                                         
+Get-HotFix                                              
+
+

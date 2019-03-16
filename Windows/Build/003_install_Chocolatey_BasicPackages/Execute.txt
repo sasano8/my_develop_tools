@@ -1,0 +1,136 @@
+﻿
+
+#===========================================
+#2018/04/15実行時は問題なく最後まで完了した。
+#===========================================
+
+###########################
+# 挙動の設定
+###########################
+
+#PowerShellの再起動
+
+# 標準ではチェックサムがないパッケージは勝手に落ちない
+# choco config set --name allowEmptyChecksums --value true
+
+#==========================
+#start install
+#==========================
+Start-Transcript
+
+
+###########################
+# 標準化ソフト
+###########################
+choco install git -y
+
+# これ適用しないとパス通ってないかも
+#SET "PATH=%PATH%;C:\Program Files\Git\bin"
+
+# git configについて
+#System（システム全体
+#gloabal(ユーザ全体 自分のユーザディレクトリのgit.config
+#local（リポジトリのみ
+
+#[diff]
+#    tool = WinMerge
+
+#[difftool]
+#prompt = false
+
+#[difftool "WinMerge"]
+#path = C:/Program Files/WinMerge/WinMergeU.exe
+#cmd = \"C:/Program Files/WinMerge/WinMergeU.exe\" -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$LOCAL\" \"$REMOTE\"
+#trustExitCode = false
+
+#git config --replace --global difftool.prompt false
+
+
+
+
+
+
+choco install vim -y
+
+# 可能ならignorechecksumを外してください。
+choco install winmerge-jp --ignorechecksum -y
+
+#テキストエディタ
+choco install notepadplusplus -y
+
+#
+#choco install sublimetext3 
+
+#ブラウザ
+choco install googlechrome -y
+
+#画像ビューア
+choco install honeyview -y
+
+#Markdown エディタ
+choco install haroopad -y
+
+#解凍ツール
+choco install lhaplus --ignorechecksum -y
+
+###########################
+# 開発環境関連
+###########################
+
+#docker tool
+#choco install docker -y
+
+#Docker for Windows
+choco install docker-for-windows -y
+
+#パケットキャプチャ
+choco install wireshark -y
+
+#visual studio
+choco install VisualStudio2017Community -y
+
+# CSV Editor
+# エディタ入れたいけどビューしかない
+#choco install csvfileview
+#'C:\ProgramData\chocolatey\lib\csvfileview\tools'
+
+#python2.7
+choco install python2 -y
+
+#pycharm-community
+choco install pycharm-community -y
+
+#anaconda
+#anaconda is python pacakges for data science.
+choco install anaconda3 -y
+
+###########################
+# 開発ツール
+###########################
+#source tree
+choco install sourcetree -y
+
+#teraterm
+choco install teraterm -y
+
+###########################
+# セキュリティ
+###########################
+#kasperysky
+choco install kis -y
+
+###########################
+# 確認
+###########################
+# インストール済みパッケージの確認
+choco list -localonly
+
+
+
+
+
+###########################
+# 手動インストール
+###########################
+#Excel 2010のダウンロードは下記より可能
+https://www.microsoft.com/ja-jp/software-download/office

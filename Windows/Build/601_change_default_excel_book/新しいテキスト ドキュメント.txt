@@ -1,0 +1,8 @@
+
+# Excelのデフォルトテンプレートを変更する。（印刷時にヘッダ・ページ番号をつける。）
+
+if((Test-Path C:\Windows\ShellNew\EXCEL12.xlsx) -eq $false) { throw "想定しているブックが存在しません。" }
+
+mv C:\Windows\ShellNew\EXCEL12.xlsx C:\Windows\ShellNew\EXCEL12_bak.xlsx
+cp EXCEL12.xlsx C:\Windows\ShellNew\EXCEL12.xlsx
+

@@ -1,0 +1,6 @@
+
+#Excelを別窓で開きやすいようにします。
+#Shell:SendTo と入力すると、右クリックのコンテキストメニューを編集できます。
+#C:\Users\user\AppData\Roaming\Microsoft\Windows\SendTo
+#別窓で開きたいファイルを右クリックの送るから選択してください。
+

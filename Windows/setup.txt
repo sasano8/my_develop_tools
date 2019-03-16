@@ -1,0 +1,16 @@
+# PowerShell リモート操作の方法
+
+
+#操作は管理者権限で実施する。
+
+#接続先でリモート操作を許可する
+Enable-PSRemoting
+
+
+#接続元で接続先ホストを信頼する
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value DESKTOP-B7P9HLQ
+#Set-Item WSMan:\localhost\Client\TrustedHosts -Value "*" 全て信頼する場合
+
+#接続先でリモート操作を無効にする
+Disable-PSRemoting
+
