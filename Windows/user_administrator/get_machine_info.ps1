@@ -103,7 +103,7 @@ Get-ScheduledTask | Export-Csv -Encoding Default $o\scheduled_tasks.csv
 #(Get-WmiObject -query ‘select * from SoftwareLicensingService’).OA3xOriginalProductKey
 
 # プロダクトキー取得(wmic版）
-wmic path SoftwareLicensingService get OA3xOriginalProductKey
+wmic path SoftwareLicensingService get OA3xOriginalProductKey | Select-Object -Index 2
 
 # パッチ一覧
 Get-WMIObject Win32_QuickFixEngineering | Export-Csv -Encoding Default $o\windows_patch.csv
