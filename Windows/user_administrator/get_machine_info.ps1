@@ -1,7 +1,7 @@
 
 $o = '..\out'
 
-# outputƒtƒHƒ‹ƒ_‚ÌŠm”F ‘¶İ‚µ‚È‚¢ê‡‚Íˆ—‚ğI—¹
+# outputãƒ•ã‚©ãƒ«ãƒ€ã®ç¢ºèª å­˜åœ¨ã—ãªã„å ´åˆã¯å‡¦ç†ã‚’çµ‚äº†
 ls $o -ErrorAction Stop
 
 # computer name
@@ -22,7 +22,7 @@ Get-LocalGroup | Get-LocalGroupMember
 
 
 # install software
-# ƒ\ƒtƒgƒEƒFƒAˆê——‚Æ“à—e‚ªˆê’v‚µ‚Ä‚¢‚È‚©‚Á‚½
+# ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ä¸€è¦§ã¨å†…å®¹ãŒä¸€è‡´ã—ã¦ã„ãªã‹ã£ãŸ
 Get-WmiObject Win32_Product | Export-Csv -Encoding Default $o\install_softwares.csv
 
 
@@ -31,15 +31,15 @@ Get-WmiObject Win32_Product | Export-Csv -Encoding Default $o\install_softwares.
 Get-NetIPAddress | Export-Csv -Encoding Default $o\ip_address.csv
 
 #NetAdapter
-#Windows7 –¢‘Î‰H
+#Windows7 æœªå¯¾å¿œï¼Ÿ
 Get-NetAdapter | Export-Csv -Encoding Default $o\network_adapter.csv
 
 #NetAdapterBinding
-#Windows7 –¢‘Î‰H
+#Windows7 æœªå¯¾å¿œï¼Ÿ
 Get-NetAdapterBinding | Export-Csv -Encoding Default $o\network_adapter_binding.csv
 
-# ƒvƒŠƒ“ƒ^[ˆê——
-# Windows2008‚Å‚Í“®ì‚µ‚È‚¢
+# ãƒ—ãƒªãƒ³ã‚¿ãƒ¼ä¸€è¦§
+# Windows2008ã§ã¯å‹•ä½œã—ãªã„
 Get-Printer | Export-Csv -Encoding Default $o\printers.csv
 
 Get-PrinterDriver | Export-Csv -Encoding Default $o\PrinterDrivers.csv
@@ -49,10 +49,10 @@ Get-PrinterPort | Export-Csv -Encoding Default $o\PrinterPorts.csv
 # FirewareProfile
 Get-NetFirewallProfile | Export-Csv -Encoding Default $o\firewall_profile.csv
 
-# ƒT[ƒrƒXˆê——
+# ã‚µãƒ¼ãƒ“ã‚¹ä¸€è¦§
 get-service | Export-Csv -Encoding Default $o\services.csv
 
-# ŠÂ‹«•Ï”ˆê——
+# ç’°å¢ƒå¤‰æ•°ä¸€è¦§
 ls env: | Export-Csv -Encoding Default $o\variables.csv
 
 
@@ -60,49 +60,52 @@ ls env: | Export-Csv -Encoding Default $o\variables.csv
 cp C:\Windows\System32\drivers\etc\hosts $o\hosts
 
 
-# ƒfƒoƒCƒXˆê——
+# ãƒ‡ãƒã‚¤ã‚¹ä¸€è¦§
 Get-WmiObject Win32_PnpEntity | Export-Csv -Encoding Default $o\devices.csv
 
-#ƒhƒ‰ƒCƒoˆê——
+#ãƒ‰ãƒ©ã‚¤ãƒä¸€è¦§
 driverquery
 
 
-# ƒT[ƒo‚Ì‚İÀs‰Â”\‚Æv‚í‚ê‚é
+# ã‚µãƒ¼ãƒã®ã¿å®Ÿè¡Œå¯èƒ½ã¨æ€ã‚ã‚Œã‚‹
 get-windowsFeature | Export-Csv -Encoding Default $o\Features.csv
 
 
 
 
-#ƒƒOƒIƒ“ƒAƒJƒEƒ“ƒg‚ğŠm”F‚Å‚«‚é‚ç‚µ‚¢‚ªûW‚·‚é•K—v«‚ ‚é‚©HH
+#ãƒ­ã‚°ã‚ªãƒ³ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’ç¢ºèªã§ãã‚‹ã‚‰ã—ã„ãŒåé›†ã™ã‚‹å¿…è¦æ€§ã‚ã‚‹ã‹ï¼Ÿï¼Ÿ
 #gwmi win32_service -Filter "startname='LocalSystem'"
 
 
-# ‹ó‚«—e—Ê
+# ç©ºãå®¹é‡
 Get-PSDrive -PSProvider FileSystem | Export-Csv -Encoding Default $o\disk_volume.csv
 
-# ƒAƒNƒZƒXŒ æ“¾
+# ã‚¢ã‚¯ã‚»ã‚¹æ¨©å–å¾—
 pwd | Get-Acl | Export-Csv -Encoding Default $o\access.csv
 
-# ƒXƒPƒWƒ…[ƒ‰[
+# ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ©ãƒ¼
 Get-ScheduledTask | Export-Csv -Encoding Default $o\scheduled_tasks.csv
 
-# ã‹LƒXƒPƒWƒ…[ƒ‰ƒRƒ}ƒ“ƒh‚ª—˜—p‚Å‚«‚È‚¢ê‡ˆÈ‰º‚ğ—˜—p‚·‚éB
+# ä¸Šè¨˜ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ©ã‚³ãƒãƒ³ãƒ‰ãŒåˆ©ç”¨ã§ããªã„å ´åˆä»¥ä¸‹ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
 # at
 
-# Às—\’è‚Ìƒ^ƒXƒNˆê——
+# å®Ÿè¡Œäºˆå®šã®ã‚¿ã‚¹ã‚¯ä¸€è¦§
 #Get-ScheduledTask | Where {$_.State -eq 'Ready'} | Get-ScheduledTaskInfo | where {$_.nextruntime -ne $null} | select taskpath,taskname,nextruntime | Sort-Object taskname
 
-# ƒCƒxƒ“ƒgƒƒO
+# ã‚¤ãƒ™ãƒ³ãƒˆãƒ­ã‚°
 #Get-EventLog -list | Export-Csv -Encoding Default $o\events.csv
 
-# ƒCƒxƒ“ƒgƒƒOÚ×
+# ã‚¤ãƒ™ãƒ³ãƒˆãƒ­ã‚°è©³ç´°
 #Get-EventLog System | Export-Csv -Encoding Default $o\events_system.csv
 
-# ƒvƒƒ_ƒNƒgƒL[æ“¾
-# æ“¾‚Å‚«‚È‚©‚Á‚½
-#(Get-WmiObject -query eselect * from SoftwareLicensingServicef).OA3xOriginalProductKey
+# ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã‚­ãƒ¼å–å¾—
+# å–å¾—ã§ããªã‹ã£ãŸ
+#(Get-WmiObject -query â€˜select * from SoftwareLicensingServiceâ€™).OA3xOriginalProductKey
 
-# ƒpƒbƒ`ˆê——
+# ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã‚­ãƒ¼å–å¾—(wmicç‰ˆï¼‰
+wmic path SoftwareLicensingService get OA3xOriginalProductKey
+
+# ãƒ‘ãƒƒãƒä¸€è¦§
 Get-WMIObject Win32_QuickFixEngineering | Export-Csv -Encoding Default $o\windows_patch.csv
 
 
