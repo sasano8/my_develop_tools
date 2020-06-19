@@ -156,6 +156,9 @@ None,      Up,   Button4, 5
 None,      Down, Button5, 5
 EOF
 
+# コンテキストメニューに空のテキストを作成できるようにする
+touch ~/Templates/empty_text
+
 # gnomeのカスタマイズ
 sudo apt install -y chrome-gnome-shell
 
