@@ -1,3 +1,16 @@
+# Vim Plugin Manager
+Vimのプラグインマネージャを導入ください。
+
+- https://github.com/tpope/vim-pathogen
+
+エラーが生じる場合は、以下のパッケージを導入してみる。
+
+``` shell
+sudo apt-get install vim-gui-common
+sudo apt-get install vim-runtime
+```
+
+
 # textlint
 
 ## パッケージインストール
@@ -15,3 +28,19 @@ cp prh-my-rules/textlintrc/default1.json .textlintrc.json
 # .editorconfigをコピー
 cp prh-my-rules/.editorconfig .
 ```
+
+
+# EditorConfig
+EditorConfigの拡張を各エディタに導入する。
+
+## vscode
+- EditorConfig for vscode
+
+## vim
+- https://github.com/editorconfig/editorconfig-vim
+
+## pycharm
+- ???
+
+
+
