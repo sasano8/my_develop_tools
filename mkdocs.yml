@@ -1,0 +1,12 @@
+INHERIT: ./common/mkdocs_base.yml
+
+site_name: ポートフォリオ
+site_description: ""
+# site_url: https://xxxx
+# repo_name: sasano8/xxxx
+# repo_url: 
+edit_uri: "edit/main/docs/"
+
+nav:
+  - はじめに: "index.md"
+  - Windows: "windows.md"

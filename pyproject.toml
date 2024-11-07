@@ -1,0 +1,16 @@
+[project]
+name = "my-develop-tools"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = []
+
+[dependency-groups]
+docs = [
+    "mkdocs>=1.4.2",
+    "mkautodoc>=0.2.0",
+    "mkdocs-material>=8.5.8",
+    "pymdown-extensions>=10.0",
+    "mkdocs-print-site-plugin>=2.3.4",
+]
