@@ -60,7 +60,8 @@ jobs:
       #   if: steps.cache-venv.outputs.cache-hit != 'true'
       #   run: poetry install --only docs
 
-      - run: make doc-build
+      - name: Build the document
+        run: make doc-build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
