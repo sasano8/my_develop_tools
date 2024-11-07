@@ -462,7 +462,105 @@ PDFとして保存したい場合は、<code>印刷 -> PDFに保存</code>を実
                 </nav>
             </div>
         </section>
-        </div>
+        <section class="print-page" id="windows"><h1 id="windows-chocolatey">chocolatey のインストール</h1>
+<p>実行環境：PowerShell（管理者権限）</p>
+<p>次を参考に chocolatey をインストールする。</p>
+<p>https://chocolatey.org/install</p>
+<h1 id="windows-_1">開発ツールのインストール</h1>
+<p>choco install googlechrome
+choco install vscode</p>
+<h1 id="windows-wsl">WSLをインストールする</h1>
+<p>実行環境：PowerShell（管理者権限）</p>
+<p><code>wsl --install</code>  を実行する。
+wsl に必要な Windows コンポーネントの構成と wsl がインストールされる。</p>
+<div class="highlight"><pre><span></span><code>インストール中：仮想マシンプラットフォーム
+インストール中：Linux用Windowsサブシステム
+インストール中：Ubuntu
+</code></pre></div>
+<p>再起動する。</p>
+<div class="highlight"><pre><span></span><code>Restart-Computer
+</code></pre></div>
+<p>Ubuntu がインストールされているので、好みのディストリビューションに変更したい場合は、次の手順を参考にする。</p>
+<h1 id="windows-_2">ディストリビューションを変更する</h1>
+<h2 id="windows-_3">ディストリビューションをアンインストールする</h2>
+<div class="highlight"><pre><span></span><code>wsl --unregister Ubuntu
+# 加えてアプリもインストールされているのでコントロールパネルのアプリ一覧から削除する。
+</code></pre></div>
+<h2 id="windows-_4">ディストリビューションを確認する</h2>
+<p>wsl --list --online</p>
+<h2 id="windows-_5">ディストリビューションをインストールする</h2>
+<p>wsl --install -d Ubuntu-24.04</p>
+<h2 id="windows-_6">ディストリビューションを規定にする</h2>
+<p>wsl --set-default Ubuntu-24.04</p>
+<h1 id="windows-_7">ソフトウェアの更新</h1>
+<p>実行環境：PowerShell（管理者権限）</p>
+<p>sudo apt update
+sudo apt -y upgrade
+sudo apt install -y make</p>
+<h1 id="windows-wslg">WSLgの確認</h1>
+<p>WSLg は Linux の GUI を Windows に連携する仕組みです。</p>
+<p>GUI の動作確認にテキストエディタをインストールします。</p>
+<div class="highlight"><pre><span></span><code>sudo snap install gedit
+sudo apt install geany
+sudo apt install vim-gtk3
+</code></pre></div>
+<p>動作確認をする。</p>
+<div class="highlight"><pre><span></span><code>gedit
+geany
+gvim
+</code></pre></div>
+<p>日本語を使いたい場合は、日本語IMEなどLinux側にインストールする必要があります。</p>
+<h1 id="windows-windows">Windows 側の設定</h1>
+<h2 id="windows-windows_1">Windows の拡張子の表示</h2>
+<p>・「Win」キーと「E」キーを押し、エクスプローラーを起動
+・[表示] をクリックし、[ファイル名拡張子] にチェック</p>
+<h2 id="windows-_8">メモなどの管理場所を作成</h2>
+<div class="highlight"><pre><span></span><code>mkdir -p $HOME/documents/tasks
+</code></pre></div>
+<p>Windows側にショートカットを作成する。</p>
+<div class="highlight"><pre><span></span><code>\\wsl.localhost\Ubuntu-24.04\home\USERNAME\documents\tasks
+</code></pre></div>
+<h1 id="windows-todo">TODO</h1>
+<p>・クラウドストレージと連携する</p>
+<h1 id="windows-python">Python 環境の構築</h1>
+<p>次を参考に uv をインストールする。
+uv は　rye の後継のような環境マネージャー。Astral社が開発している（uvicornなど）。</p>
+<p>https://docs.astral.sh/uv/#getting-started</p>
+<p>シェルを再起動しコマンドを確認する。</p>
+<div class="highlight"><pre><span></span><code>uv --version
+</code></pre></div>
+<h1 id="windows-uv">uv の使い方</h1>
+<p>uv は Cargo を目指しており、開発標準ツールがバンドルされている。</p>
+<h2 id="windows-_9">リンターの使用</h2>
+<div class="highlight"><pre><span></span><code>uvx ruff
+
+# 特定のバージョンでチェックする
+uvx ruff@0.3.0 check
+uvx ruff@latest check
+</code></pre></div>
+<h2 id="windows-_10">プロジェクトの作成と仮想環境の作成</h2>
+<p>プロジェクトを初期化する（gitなどを使う場合はスキップ）。</p>
+<div class="highlight"><pre><span></span><code>uv init my-project
+cd my-project
+</code></pre></div>
+<p>パッケージを同期する。</p>
+<div class="highlight"><pre><span></span><code>uv sync
+</code></pre></div>
+<h1 id="windows-_11">ネットワーク設定</h1>
+<p>デフォルトではドメインの解決に失敗することがある。
+必要に応じてwsl の構成を変更する。</p>
+<p>sudo vim /etc/wsl.conf
+[network]
+generateResolvConf = false</p>
+<p>/etc/resolv.conf</p>
+<div class="highlight"><pre><span></span><code>nameserver 8.8.8.8
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>curl github.com
+</code></pre></div>
+<h1 id="windows-git">Git の設定</h1>
+<div class="highlight"><pre><span></span><code>git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;
+</code></pre></div></section></div>
 
 
 
